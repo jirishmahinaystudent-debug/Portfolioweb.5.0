@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gerald Villar | MLBB 10th Anniversary</title>
+
+<style>
+/* ==============================
+   GLOBAL
+================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Animated Background */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(circle at 20% 20%, rgba(0,132,255,.15), transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba(255,184,0,.12), transparent 30%);
+    z-index:-2;
+}
+
+.stars{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background-image:
+    radial-gradient(white 1px, transparent 1px);
+    background-size:50px 50px;
+    opacity:.15;
+    animation:moveStars 25s linear infinite;
+    z-index:-1;
+}
+
+@keyframes moveStars{
+    from{background-position:0 0;}
+    to{background-position:500px 1000px;}
+}
+
+/* ==============================
+   NAVIGATION
+================================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:75px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 7%;
+
+    background:rgba(5,8,22,.92);
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid rgba(0,174,255,.3);
+
+    z-index:1000;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+    color:#ffd34d;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#00bfff;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:15px;
+    transition:.3s;
+    cursor:pointer;
+}
+
+nav ul li a:hover{
+    color:#ffd34d;
+}
+
+.menu-btn{
+    display:none;
+    font-size:25px;
+    cursor:pointer;
+}
+
+/* ==============================
+   HERO SECTION
+================================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:120px 20px 60px;
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.anniversary{
+    display:inline-block;
+
+    padding:10px 20px;
+
+    border:1px solid #ffd34d;
+
+    color:#ffd34d;
+
+    border-radius:30px;
+
+    margin-bottom:20px;
+
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+    0%{
+        box-shadow:0 0 5px #ffd34d;
+    }
+
+    50%{
+        box-shadow:0 0 30px #ffd34d;
+    }
+
+    100%{
+        box-shadow:0 0 5px #ffd34d;
+    }
+
+}
+
+.hero h1{
+    font-size:65px;
+
+    background:linear-gradient(
+        90deg,
+        #00bfff,
+        #ffffff,
+        #ffd34d
+    );
+
+    -webkit-background-clip:text;
+    color:transparent;
+
+    margin-bottom:20px;
+
+    animation:fadeUp 1.5s ease;
+}
+
+.hero h2{
+    font-size:28px;
+    color:#00bfff;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:18px;
+    color:#c7d5e0;
+    line-height:1.7;
+}
+
+.hero-buttons{
+    margin-top:35px;
+
+    display:flex;
+    gap:15px;
+
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 28px;
+
+    border:none;
+
+    border-radius:30px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.btn-primary{
+    background:linear-gradient(90deg,#008cff,#00c6ff);
+    color:white;
+}
+
+.btn-secondary{
+    border:1px solid #ffd34d;
+    color:#ffd34d;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 30px rgba(0,174,255,.4);
+}
+
+/* ==============================
+   SECTION
+================================= */
+
+section{
+    padding:100px 8%;
+}
+
+.section-title{
+    text-align:center;
+
+    font-size:40px;
+
+    margin-bottom:20px;
+
+    color:#ffd34d;
+}
+
+.section-subtitle{
+    text-align:center;
+
+    color:#9db2c7;
+
+    margin-bottom:50px;
+}
+
+/* ==============================
+   ABOUT
+================================= */
+
+.about-container{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:50px;
+
+    align-items:center;
+
+}
+
+.about-card{
+
+    background:rgba(255,255,255,.05);
+
+    padding:40px;
+
+    border-radius:20px;
+
+    border:1px solid rgba(0,174,255,.2);
+
+}
+
+.about-card h3{
+
+    font-size:30px;
+
+    color:#00bfff;
+
+    margin-bottom:20px;
+
+}
+
+.about-card p{
+
+    line-height:1.8;
+
+    color:#c8d4df;
+
+}
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.stat{
+
+    background:linear-gradient(
+        145deg,
+        rgba(0,174,255,.15),
+        rgba(255,211,77,.1)
+    );
+
+    padding:30px;
+
+    text-align:center;
+
+    border-radius:15px;
+
+}
+
+.stat h3{
+
+    font-size:35px;
+
+    color:#ffd34d;
+
+}
+
+.stat p{
+
+    color:#9fb0c0;
+
+}
+
+/* ==============================
+   SEARCH
+================================= */
+
+.search-container{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-bottom:30px;
+
+}
+
+.search-container input{
+
+    width:350px;
+
+    max-width:90%;
+
+    padding:15px 20px;
+
+    border-radius:30px;
+
+    border:1px solid #00bfff;
+
+    background:#0c1426;
+
+    color:white;
+
+    outline:none;
+
+}
+
+/* ==============================
+   FILTER
+================================= */
+
+.filters{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:40px;
+
+}
+
+.filter-btn{
+
+    padding:10px 20px;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:#111c33;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+
+    background:#00aaff;
+
+    color:white;
+
+}
+
+/* ==============================
+   HERO GRID
+================================= */
+
+.hero-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    gap:25px;
+
+}
+
+.skin-card{
+
+    position:relative;
+
+    height:360px;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    background:#101a30;
+
+    border:1px solid rgba(0,174,255,.3);
+
+    transition:.4s;
+
+}
+
+.skin-card:hover{
+
+    transform:translateY(-10px) scale(1.02);
+
+    box-shadow:
+    0 15px 40px rgba(0,174,255,.35);
+
+}
+
+.skin-image{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+
+}
+
+.skin-card:hover .skin-image{
+
+    transform:scale(1.1);
+
+}
+
+.skin-info{
+
+    position:absolute;
+
+    bottom:0;
+
+    width:100%;
+
+    padding:25px;
+
+    background:
+    linear-gradient(
+        transparent,
+        rgba(0,0,0,.95)
+    );
+
+}
+
+.skin-info h3{
+
+    font-size:24px;
+
+}
+
+.skin-info p{
+
+    color:#ffd34d;
+
+    margin-top:5px;
+
+}
+
+/* ==============================
+   ANNIVERSARY
+================================= */
+
+.anniversary-section{
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #06142b,
+        #1a1030
+    );
+
+}
+
+.anniversary-number{
+
+    font-size:120px;
+
+    font-weight:bold;
+
+    background:
+    linear-gradient(
+        #ffd34d,
+        #ff8c00
+    );
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+    animation:float 3s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-20px);
+    }
+
+}
+
+/* ==============================
+   CONTACT
+================================= */
+
+.contact{
+
+    text-align:center;
+
+}
+
+.contact-card{
+
+    max-width:650px;
+
+    margin:auto;
+
+    background:rgba(255,255,255,.05);
+
+    padding:50px;
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,211,77,.3);
+
+}
+
+.contact h3{
+
+    font-size:30px;
+
+    color:#00bfff;
+
+    margin-bottom:15px;
+
+}
+
+/* ==============================
+   MODAL
+================================= */
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    z-index:2000;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:rgba(0,0,0,.85);
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+}
+
+.modal-content{
+
+    max-width:600px;
+
+    width:100%;
+
+    background:#0b1325;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    animation:popup .4s ease;
+
+}
+
+@keyframes popup{
+
+    from{
+        transform:scale(.7);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+.modal img{
+
+    width:100%;
+
+    height:300px;
+
+    object-fit:cover;
+
+}
+
+.modal-text{
+
+    padding:30px;
+
+}
+
+.close{
+
+    float:right;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+    color:#ffd34d;
+
+}
+
+/* ==============================
+   FOOTER
+================================= */
+
+footer{
+
+    text-align:center;
+
+    padding:30px;
+
+    background:#03050d;
+
+    color:#7f91a5;
+
+}
+
+/* ==============================
+   ANIMATION
+================================= */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==============================
+   MOBILE
+================================= */
+
+@media(max-width:768px){
+
+    nav ul{
+
+        display:none;
+
+        position:absolute;
+
+        top:75px;
+
+        left:0;
+
+        width:100%;
+
+        flex-direction:column;
+
+        background:#081020;
+
+        padding:25px;
+
+        text-align:center;
+
+    }
+
+    nav ul.show{
+
+        display:flex;
+
+    }
+
+    .menu-btn{
+
+        display:block;
+
+    }
+
+    .hero h1{
+
+        font-size:42px;
+
+    }
+
+    .about-container{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+
+<div class="logo">
+GERALD <span>VILLAR</span>
+</div>
+
+<ul id="navLinks">
+
+<li><a href="#home">Home</a></li>
+
+<li><a href="#about">About</a></li>
+
+<li><a href="#skins">Hero Skins</a></li>
+
+<li><a href="#anniversary">10th Anniversary</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+<div class="menu-btn" onclick="toggleMenu()">
+☰
+</div>
+
+</nav>
+
+<!-- ================= HOME ================= -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<div class="anniversary">
+🎉 MOBILE LEGENDS 10TH ANNIVERSARY
+</div>
+
+<h1>MLBB HERO SKINS PORTFOLIO</h1>
+
+<h2>Welcome, I'm Gerald Villar</h2>
+
+<p>
+Explore an epic collection of Mobile Legends: Bang Bang heroes,
+legendary skins, special effects, and anniversary celebrations.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#skins" class="btn btn-primary">
+Explore Skins
+</a>
+
+<a href="#about" class="btn btn-secondary">
+About Me
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+<h2 class="section-title">About Gerald Villar</h2>
+
+<p class="section-subtitle">
+MLBB Fan • Gamer • Hero Skin Collector
+</p>
+
+<div class="about-container">
+
+<div class="about-card">
+
+<h3>My Gaming Portfolio</h3>
+
+<p>
+Welcome to my Mobile Legends: Bang Bang themed portfolio!
+I am Gerald Villar, a passionate MLBB fan who enjoys exploring
+heroes, skins, legendary designs, and the exciting world of the Land
+of Dawn.
+</p>
+
+<br>
+
+<p>
+This website celebrates the heroes and skins that make Mobile Legends
+an unforgettable game.
+</p>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+
+<h3>100+</h3>
+
+<p>Heroes</p>
+
+</div>
+
+<div class="stat">
+
+<h3>500+</h3>
+
+<p>Skins</p>
+
+</div>
+
+<div class="stat">
+
+<h3>10</h3>
+
+<p>Years Celebration</p>
+
+</div>
+
+<div class="stat">
+
+<h3>∞</h3>
+
+<p>Gaming Passion</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= SKINS ================= -->
+
+<section id="skins">
+
+<h2 class="section-title">Hero Skin Collection</h2>
+
+<p class="section-subtitle">
+Click any hero card to discover more information.
+</p>
+
+<div class="search-container">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search hero..."
+onkeyup="searchHeroes()">
+
+</div>
+
+<div class="filters">
+
+<button class="filter-btn active"
+onclick="filterHeroes('all')">
+All
+</button>
+
+<button class="filter-btn"
+onclick="filterHeroes('fighter')">
+Fighter
+</button>
+
+<button class="filter-btn"
+onclick="filterHeroes('mage')">
+Mage
+</button>
+
+<button class="filter-btn"
+onclick="filterHeroes('assassin')">
+Assassin
+</button>
+
+<button class="filter-btn"
+onclick="filterHeroes('marksman')">
+Marksman
+</button>
+
+<button class="filter-btn"
+onclick="filterHeroes('tank')">
+Tank
+</button>
+
+</div>
+
+<div class="hero-grid" id="heroGrid">
+
+<!-- HERO 1 -->
+
+<div class="skin-card fighter"
+onclick="openModal(
+'Alucard',
+'Legendary Fighter',
+'https://images.unsplash.com/photo-1542751371-adc38448a05e'
+)">
+
+<img
+class="skin-image"
+src="https://images.unsplash.com/photo-1542751371-adc38448a05e"
+alt="Alucard">
+
+<div class="skin-info">
+
+<h3>Alucard</h3>
+
+<p>Legendary Fighter Skin</p>
+
+</div>
+
+</div>
+
+<!-- HERO 2 -->
+
+<div class="skin-card mage"
+onclick="openModal(
+'Gusion',
+'Elite Assassin Skin',
+'https://images.unsplash.com/photo-1511512578047-dfb367046420'
+)">
+
+<img
+class="skin-image"
+src="https://images.unsplash.com/photo-1511512578047-dfb367046420"
+alt="Gusion">
+
+<div class="skin-info">
+
+<h3>Gusion</h3>
+
+<p>Elite Assassin Skin</p>
+
+</div>
+
+</div>
+
+<!-- HERO 3 -->
+
+<div class="skin-card marksman"
+onclick="openModal(
+'Miya',
+'Moonlight Archer Skin',
+'https://images.unsplash.com/photo-1550745165-9bc0b252726f'
+)">
+
+<img
+class="skin-image"
+src="https://images.unsplash.com/photo-1550745165-9bc0b252726f"
+alt="Miya">
+
+<div class="skin-info">
+
+<h3>Miya</h3>
+
+<p>Moonlight Archer Skin</p>
+
+</div>
+
+</div>
+
+<!-- HERO 4 -->
+
+<div class="skin-card fighter"
+onclick="openModal(
+'Chou',
+'Kung Fu Champion Skin',
+'https://images.unsplash.com/photo-1493711662062-fa541adb3fc8'
+)">
+
+<img
+class="skin-image"
+src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8"
+alt="Chou">
+
+<div class="skin-info">
+
+<h3>Chou</h3>
+
+<p>Kung Fu Champion Skin</p>
+
+</div>
+
+</div>
+
+<!-- HERO 5 -->
+
+<div class="skin-card mage"
+onclick="openModal(
+'Kagura',
+'Onmyouji Master Skin',
+'https://images.unsplash.com/photo-1547394765-185e1e68f34e'
+)">
+
+<img
+class="skin-image"
+src="https://images.unsplash.com/photo-1547394765-185e1e68f34e"
+alt="Kagura">
+
+<div class="skin-info">
+
+<h3>Kagura</h3>
+
+<p>Onmyouji Master Skin</p>
+
+</div>
+
+</div>
+
+<!-- HERO 6 -->
+
+<div class="skin-card assassin"
+onclick="openModal(
+'Hayabusa',
+'Shadow Assassin Skin',
+'https://images.unsplash.com/photo-1552820728-8b83bb6b773f'
+)">
+
+<img
+class="skin-image"
+src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f"
+alt="Hayabusa">
+
+<div class="skin-info">
+
+<h3>Hayabusa</h3>
+
+<p>Shadow Assassin Skin</p>
+
+</div>
+
+</div>
+
+<!-- HERO 7 -->
+
+<div class="skin-card tank"
+onclick="openModal(
+'Tigreal',
+'Imperial Knight Skin',
+'https://images.unsplash.com/photo-1550745165-9bc0b252726f'
+)">
+
+<img
+class="skin-image"
+src="https://images.unsplash.com/photo-1550745165-9bc0b252726f"
+alt="Tigreal">
+
+<div class="skin-info">
+
+<h3>Tigreal</h3>
+
+<p>Imperial Knight Skin</p>
+
+</div>
+
+</div>
+
+<!-- HERO 8 -->
+
+<div class="skin-card marksman"
+onclick="openModal(
+'Layla',
+'Energy Gunner Skin',
+'https://images.unsplash.com/photo-1493711662062-fa541adb3fc8'
+)">
+
+<img
+class="skin-image"
+src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8"
+alt="Layla">
+
+<div class="skin-info">
+
+<h3>Layla</h3>
+
+<p>Energy Gunner Skin</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= ANNIVERSARY ================= -->
+
+<section
+id="anniversary"
+class="anniversary-section">
+
+<h2 class="section-title">
+Celebrating MLBB
+</h2>
+
+<div class="anniversary-number">
+10
+</div>
+
+<h2>
+Years of Epic Battles
+</h2>
+
+<br>
+
+<p style="color:#b8c7d6; max-width:700px; margin:auto; line-height:1.8">
+
+Celebrating a decade of heroes, legendary battles,
+amazing skins, unforgettable moments, and the incredible
+Mobile Legends community.
+
+</p>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section
+id="contact"
+class="contact">
+
+<h2 class="section-title">
+Contact
+</h2>
+
+<div class="contact-card">
+
+<h3>Gerald Villar</h3>
+
+<p>
+Thank you for visiting my MLBB Hero Skins Portfolio!
+</p>
+
+<br>
+
+<p>
+⚔️ See you in the Land of Dawn!
+</p>
+
+</div>
+
+</section>
+
+<!-- ================= MODAL ================= -->
+
+<div
+class="modal"
+id="heroModal">
+
+<div class="modal-content">
+
+<div class="modal-text">
+
+<span
+class="close"
+onclick="closeModal()">
+×
+</span>
+
+</div>
+
+<img
+id="modalImage"
+src=""
+alt="Hero">
+
+<div class="modal-text">
+
+<h2 id="modalTitle"></h2>
+
+<br>
+
+<p
+id="modalDescription"
+style="color:#ffd34d">
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+© 2026 Gerald Villar | Mobile Legends Hero Skins Portfolio
+
+</footer>
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+/* MOBILE MENU */
+
+function toggleMenu(){
+
+    document
+    .getElementById("navLinks")
+    .classList
+    .toggle("show");
+
+}
+
+
+/* FILTER HEROES */
+
+function filterHeroes(category){
+
+    const cards =
+    document.querySelectorAll(".skin-card");
+
+    const buttons =
+    document.querySelectorAll(".filter-btn");
+
+    buttons.forEach(button=>{
+        button.classList.remove("active");
+    });
+
+    event.target.classList.add("active");
+
+    cards.forEach(card=>{
+
+        if(
+            category === "all" ||
+            card.classList.contains(category)
+        ){
+
+            card.style.display="block";
+
+        }
+
+        else{
+
+            card.style.display="none";
+
+        }
+
+    });
+
+}
+
+
+/* SEARCH HEROES */
+
+function searchHeroes(){
+
+    const input =
+    document
+    .getElementById("searchInput")
+    .value
+    .toLowerCase();
+
+    const cards =
+    document.querySelectorAll(".skin-card");
+
+    cards.forEach(card=>{
+
+        const heroName =
+        card.querySelector("h3")
+        .innerText
+        .toLowerCase();
+
+        if(heroName.includes(input)){
+
+            card.style.display="block";
+
+        }
+
+        else{
+
+            card.style.display="none";
+
+        }
+
+    });
+
+}
+
+
+/* MODAL */
+
+function openModal(
+name,
+description,
+image
+){
+
+    document
+    .getElementById("heroModal")
+    .style
+    .display="flex";
+
+    document
+    .getElementById("modalTitle")
+    .innerText=name;
+
+    document
+    .getElementById("modalDescription")
+    .innerText=description;
+
+    document
+    .getElementById("modalImage")
+    .src=image;
+
+}
+
+
+function closeModal(){
+
+    document
+    .getElementById("heroModal")
+    .style
+    .display="none";
+
+}
+
+
+/* CLOSE MODAL OUTSIDE */
+
+window.onclick=function(event){
+
+    const modal =
+    document.getElementById("heroModal");
+
+    if(event.target===modal){
+
+        modal.style.display="none";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
